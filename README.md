@@ -73,9 +73,9 @@ set host some.domain.com
 ### intensity
 
 There are 3 intensities:
-- 1: Basic checks executed
-- 2: All chceks executed (Default)
-- 3: Brute force (check for availability)
+- **1**: Basic checks executed
+- **2**: All chceks executed (Default)
+- **3**: Brute force (check for availability)
 
 ### ipv6
 

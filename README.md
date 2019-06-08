@@ -5,6 +5,8 @@ Legion is a tool that uses several well-known opensource tools to automatically,
 Basically, the goal of Legion is to extract all information that you can extract from each service so you don't have to send the same commands all the time.
 A lot of actions are repeated be being done by more than one tool, this is done to be sure that all the possible information is correctly extracted.
 
+[![asciicast](https://asciinema.org/a/250539.png)](https://asciinema.org/a/250539)
+
 ## Installation
 
 ```sh

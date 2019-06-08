@@ -15,7 +15,8 @@ A lot of actions are repeated be being done by more than one tool, this is done 
 
 ```sh
 git clone https://github.com/carlospolop/legion.git /opt/legion
-/opt/legion/install.sh
+cd /opt/legion/git
+./install.sh
 ln -s /opt/legion/legion.sh /usr/bin/legion
 ```
 
@@ -148,5 +149,4 @@ If `False` the output of `info` will show the values of the parameters, for exam
 Is the directory where the info of the victim is storaged. By default it is `$HOME/.legion`
 
 
-
-
+By Polop<sup>(TM)</sup>

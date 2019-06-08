@@ -1,0 +1,17 @@
+anonymous
+backup
+ftp
+guest
+mail
+mailadmin
+mysql
+nobody
+public
+root
+support
+sys
+test
+tomcat
+user
+webmaster
+nagiosadmin

@@ -1,0 +1,13 @@
+administrator
+anonymous
+backup
+ftp
+guest
+mysql
+oracle
+public
+support
+test
+tomcat
+user
+webmaster

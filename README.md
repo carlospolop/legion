@@ -135,7 +135,7 @@ If `False` the output of `info` will show the values of the parameters, for exam
 
 ![](https://github.com/carlospolop/legion/blob/master/images/info-verbose-false.png)
 
-### working
+### workdir
 
 Is the directory where the info of the victim is storaged. By default it is `$HOME/.legion`
 

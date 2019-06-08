@@ -2,7 +2,6 @@
 
 from warriors.warrior import Warrior
 
-#apt-get install rpcbind
 #You can check this module with irked.htb (10.10.10.117)
 
 class Portmapper_warrior (Warrior):

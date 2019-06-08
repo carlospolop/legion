@@ -71,7 +71,7 @@ valid_protos = {
     "ntp": Protocol("ntp", ["123"], ["udp"], ["ntp"], False, "https://book.hacktricks.xyz/pentesting/pentesting-ntp",
                   "The Network Time Protocol (NTP) is a networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks."),
     "oracle": Protocol("oracle", ["1521","1522-1529"], ["tcp"], ["oracle-tns"], False, "https://book.hacktricks.xyz/pentesting/1521-1522-1529-pentesting-oracle-listener",
-                  "Oracle database (Oracle DB) is a relational database management system (RDBMS) from the Oracle Corporation."),
+                  "Oracle database (Oracle DB) is a relational database management system (RDBMS) from the Oracle Corporation. You need to install some dependencied to pentest this service: https://book.hacktricks.xyz/pentesting/1521-1522-1529-pentesting-oracle-listener/oracle-pentesting-requirements-installation"),
     "pgsql": Protocol("pgsql", ["5432", "5433"], ["tcp"], ["pgsql"], False, "https://book.hacktricks.xyz/pentesting/pentesting-postgresql",
                   "PostgreQSL is an open source object-relational database system that uses and extends the SQL language."),
     "pjl": Protocol("pjl", ["9100"], ["tcp"], ["jetdirect"], False, "https://book.hacktricks.xyz/pentesting/9100-pjl",

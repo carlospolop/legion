@@ -1,5 +1,7 @@
 # LEGION - Automatic vulnerability scanner
 
+**Legion is based in the Pentesting Methodology that you can find in [book.hacktricks.xyz](https://book.hacktricks.xyz/pentesting-methodology).**
+
 Legion is a tool that uses several well-known opensource tools to automatically, semi-automatically or manually scan for vulnerabilities and common misconfigurations of the most frequent found services running in machines that you could need to pentest.
 
 Basically, the goal of Legion is to extract all information that you can extract from each service so you don't have to send the same commands all the time.
@@ -9,10 +11,16 @@ A lot of actions are repeated be being done by more than one tool, this is done 
 
 ## Installation
 
+### Installation of Legion
+
 ```sh
 git clone https://github.com/carlospolop/legion.git /opt/legion
+/opt/legion/install.sh
 ln -s /opt/legion/legion.sh /usr/bin/legion
 ```
+
+For pentesting oracle services you should install manually some dependencies:
+https://book.hacktricks.xyz/pentesting/1521-1522-1529-pentesting-oracle-listener/oracle-pentesting-requirements-installation
 
 
 ## Protocols Supported

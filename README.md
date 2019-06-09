@@ -5,7 +5,7 @@
 Legion is a tool that uses several well-known opensource tools to automatically, semi-automatically or manually scan for vulnerabilities and common misconfigurations of the most frequent found services running in machines that you could need to pentest.
 
 Basically, the goal of Legion is to extract all information that you can extract from each service so you don't have to send the same commands all the time.
-A lot of actions are repeated be being done by more than one tool, this is done to be sure that all the possible information is correctly extracted.
+A lot of actions are repeated by being done by more than one tool, this is done to be sure that all the possible information is correctly extracted.
 
 [![asciicast](https://asciinema.org/a/250539.png)](https://asciinema.org/a/250539)
 
@@ -31,7 +31,7 @@ You can get a list using the command `protos`
 ![](https://github.com/carlospolop/legion/blob/master/images/legion-protos.png)
 
 ## Brute force
-All the protocols included in Legion that could be bruteforce, can be bruteforce using Legion. To see if a service can be brute forced and which command line will be used to do so (by default "hydra" is implemented, if hydra was not available metasploit or nmap will be used) set the protocol and the set the intensity to "3".
+All the protocols included in Legion that could be brut eforce, can be brute force using Legion. To see if a service can be brute forced and which command line will be used to do so (by default "hydra" is implemented, if hydra was not available metasploit or nmap will be used) set the protocol and the set the intensity to "3".
 
 Example of brute forcing ssh:
 
@@ -43,19 +43,19 @@ Example of brute forcing ssh:
 
 Use the `help` internal command to get info about what each command does.
 
-## Automatic Scann
+## Automatic Scan
 
 Just lauch the internal command `startGeneral` and the '**General**' will start scanning ports and services automatically.
 
-## Semi-Automatic Scann
+## Semi-Automatic Scan
 
-You can set all the options properly and launch several commands to scan oe service. You can do this using the command `run`.
+You can set all the options properly and launch several commands to scan one service. You can do this using the command `run`.
 
-## Manual Scann
+## Manual Scan
 
 You can execute just one command using `exec <name>`. For example: `exec http_slqmap`
 
-Some services has *on demand commands*, this commands can only be executed using this internal command (`exec`).
+Some services have *on demand commands*, this commands can only be executed using this internal command (`exec`).
 
 ## Options
 
@@ -67,11 +67,11 @@ Set the domain of the DNS or of the user that you want to use
 
 ### extensions
 
-Comma separeted list of possible extensions (to bruteforce files in a web server)
+Comma separeted list of possible extensions (to brute force files in a web server)
 
 ### host
 
-Is the host that you want to attack (valid IP and domains)
+It is the host that you want to attack (valid IP and domains)
 
 Example:
 ```
@@ -83,7 +83,7 @@ set host some.domain.com
 
 There are 3 intensities:
 - **1**: Basic checks executed
-- **2**: All chceks executed (Default)
+- **2**: All checks executed (Default)
 - **3**: Brute force (check for availability)
 
 ### ipv6
@@ -112,7 +112,7 @@ The port where the service is running. If "0", then the default port of the serv
 
 ### proto
 
-Is the protocol that you want to attack
+It is the protocol that you want to attack
 
 Example: 
 ```

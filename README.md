@@ -17,7 +17,7 @@ A lot of actions are repeated by being done by more than one tool, this is done 
 git clone https://github.com/carlospolop/legion.git /opt/legion
 cd /opt/legion/git
 ./install.sh
-ln -s /opt/legion/legion.sh /usr/bin/legion
+ln -s /opt/legion/legion.py /usr/bin/legion
 ```
 
 For pentesting oracle services you should install manually some dependencies:
@@ -31,7 +31,7 @@ You can get a list using the command `protos`
 ![](https://github.com/carlospolop/legion/blob/master/images/legion-protos.png)
 
 ## Brute force
-All the protocols included in Legion that could be brut eforce, can be brute force using Legion. To see if a service can be brute forced and which command line will be used to do so (by default "hydra" is implemented, if hydra was not available metasploit or nmap will be used) set the protocol and the set the intensity to "3".
+All the protocols included in Legion that could be brute force, can be brute force using Legion. To see if a service can be brute forced and which command line will be used to do so (by default "hydra" is implemented, if hydra was not available metasploit or nmap will be used) set the protocol and the set the intensity to "3".
 
 Example of brute forcing ssh:
 

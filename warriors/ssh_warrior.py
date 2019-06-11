@@ -10,7 +10,7 @@ class Ssh_warrior (Warrior):
             {"name": "ssh_nmap_"+self.port, "cmd": 'nmap -n -sV --script "ssh-auth-methods or ssh-auth-methods or ssh2-enum-algos or sshv1" -p ' + self.port + ' ' + self.host, "shell": True, "chain": False},
             {"name": "ssh_sslscan_"+self.port, "cmd": "sslscan "+self.host_port, "shell": False, "chain": False},
             {"name": "ssh_sslyze_"+self.port, "cmd": "sslyze --regular "+self.host_port, "shell": False, "chain": False},
-            {"name": "ssh_version_"+self.port, "cmd": 'nc -w 10 -q 1 -vn ' + self.host + ' ' + self.port+ ' </dev/null', "shell": True, "chain": False},
+            {"name": "ssh_version_"+self.port, "cmd": 'nc -w 20 -q 1 -vn ' + self.host + ' ' + self.port+ ' </dev/null', "shell": True, "chain": False},
         ]
 
         msfmodules = [{"path": "auxiliary/scanner/ssh/ssh_version", "toset": {"RHOSTS": self.host, "RPORT": self.port}}]

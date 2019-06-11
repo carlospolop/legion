@@ -8,7 +8,7 @@ class Pgsql_warrior (Warrior):
         Warrior.__init__(self, host, port, workdir, protocol, intensity, username, ulist, password, plist, notuse, extensions, path, reexec, ipv6, domain, interactive, verbose, executed, exec)
 
         self.cmds = [
-            {"name": self.proto+"_version_"+self.port, "cmd": 'nc -w 10 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True,"chain": False},
+            {"name": self.proto+"_version_"+self.port, "cmd": 'nc -w 20 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True,"chain": False},
 
         ]
 

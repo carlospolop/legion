@@ -9,7 +9,7 @@ class Telnet_warrior (Warrior):
 
         self.cmds = [
             {"name": "telnet_nmap_"+self.port, "cmd": 'nmap -n -sV --script "telnet* and safe" -p ' + self.port + ' ' + self.host, "shell": True, "chain": False},
-            {"name": "telnet_version_"+self.port, "cmd": 'nc -w 10 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True, "chain": False},
+            {"name": "telnet_version_"+self.port, "cmd": 'nc -w 20 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True, "chain": False},
         ]
 
         msfmodules = [{"path": "auxiliary/scanner/telnet/telnet_version", "toset": {"RHOSTS": self.host, "RPORT": self.port}}, ]

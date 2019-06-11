@@ -13,7 +13,7 @@ class Smtp_warrior (Warrior):
         ]
 
         if self.proto == "smtp":
-            self.cmds.append({"name": self.proto+"_version_"+self.port, "cmd": 'nc -w 10 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True, "chain": False})
+            self.cmds.append({"name": self.proto+"_version_"+self.port, "cmd": 'nc -w 20 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True, "chain": False})
         else:
             self.cmds.append({"name": self.proto+"_version_"+self.port, "cmd": 'echo QUIT | openssl s_client -starttls smtp -crlf -connect '+self.host+':'+self.port, "shell": True, "chain": False})
 

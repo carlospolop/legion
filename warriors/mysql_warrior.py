@@ -8,7 +8,7 @@ class Mysql_warrior (Warrior):
         Warrior.__init__(self, host, port, workdir, protocol, intensity, username, ulist, password, plist, notuse, extensions, path, reexec, ipv6, domain, interactive, verbose, executed, exec)
 
         self.cmds = [
-            {"name": self.proto+"_version_"+self.port, "cmd": 'nc -w 10 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True, "chain": False},
+            {"name": self.proto+"_version_"+self.port, "cmd": 'nc -w 20 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True, "chain": False},
             {"name": self.proto+"_nmap_"+self.port, "cmd": 'nmap -n -sV --script mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 -p ' + self.port + ' ' + self.host, "shell": True, "chain": False},
 
         ]

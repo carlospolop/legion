@@ -7,7 +7,7 @@ class Http_warrior (Warrior):
         Warrior.__init__(self, host, port, workdir, protocol, intensity, username, ulist, password, plist, notuse, extensions, path, reexec, ipv6, domain, interactive, verbose, executed, exec)
 
         self.cmds=[
-            {"name": self.proto+"_nikto_"+self.port, "cmd": 'nikto -nointeractive -maxtime 45m -timeout 60 -host '+self.proto_host_port_path+' -Plugins "paths;outdated;report_sqlg;auth;content_search;report_text;fileops;parked;shellshock;report_html;cgi;headers;report_nbe;favicon;cookies;robots;report_xml;report_csv;ms10_070;msgs;drupal;apache_expect_xss;siebel;put_del_test;apacheusers;dictionary;embedded;ssl;clientaccesspolicy;httpoptions;subdomain;negotiate;sitefiles;mutiple_index;strutshock;dishwasher;paths;docker_registry;origin_reflection;dir_traversal;multiple_index"', "shell": False, "chain": False},
+            {"name": self.proto+"_nikto_"+self.port, "cmd": 'echo n | nikto -nointeractive -maxtime 45m -timeout 60 -host '+self.proto_host_port_path+' -Plugins "paths;outdated;report_sqlg;auth;content_search;report_text;fileops;parked;shellshock;report_html;cgi;headers;report_nbe;favicon;cookies;robots;report_xml;report_csv;ms10_070;msgs;drupal;apache_expect_xss;siebel;put_del_test;apacheusers;dictionary;embedded;ssl;clientaccesspolicy;httpoptions;subdomain;negotiate;sitefiles;mutiple_index;strutshock;dishwasher;paths;docker_registry;origin_reflection;dir_traversal;multiple_index"', "shell": False, "chain": False},
             {"name": self.proto+"_whatweb_"+self.port, "cmd": "whatweb -a 3 "+self.proto_host_port_path, "shell": False, "chain": False},
             {"name": self.proto + "_robots_"+self.port, "cmd": 'curl ' + self.proto_host_port + '/robots.txt -L -k --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" --connect-timeout 30 --max-time 180', "shell": True, "chain": False},
             {"name": self.proto+"_nmap_"+self.port, "cmd": 'nmap -n -sV --script "(http* and not (dos or brute) and not http-xssed)" -p '+self.port+' '+self.host, "shell": True, "chain": False},
@@ -42,7 +42,7 @@ class Http_warrior (Warrior):
         dav_auth = "-auth "+self.username+":"+self.password+" " if (self.username and self.password) else ""
         self.demand_cmds=[
             {"name": self.proto + "_slow_dirsearch_"+self.port, "cmd": "dirsearch -f -F -u " + self.proto_host_port + " -e " + self.extensions + " -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt", "shell": False, "chain": False},
-            {"name": self.proto + "_slqmap_"+self.port, "cmd": "sqlmap -u "+self.proto_host_port_path+" --batch --crawl=5 --level 1 --risk 1 -f -a" , "shell": False, "chain": False},
+            {"name": self.proto + "_slqmap_"+self.port, "cmd": "sqlmap -u "+self.proto_host_port_path+" --batch --crawl=3 --forms --random-agent --level 1 --risk 1 -f -a" , "shell": False, "chain": False},
             {"name": self.proto + "_davtestmove_"+self.port, "cmd": "davtest "+dav_auth+"-move -sendbd auto -url "+self.proto_host_port_path, "shell": False, "chain": False},
             {"name": self.proto + "_davtestnorm_"+self.port, "cmd": "davtest "+dav_auth+" -sendbd auto -url " + self.proto_host_port_path, "shell": False, "chain": False},
             {"name": self.proto + "_wpscan_"+self.port, "cmd": "wpscan --url "+self.proto_host_port_path+" --rua --no-update --enumerate ap", "shell": False, "chain": False},

@@ -9,7 +9,7 @@ class Ftp_warrior (Warrior):
 
         self.cmds = [
             {"name": "ftp_nmap_"+self.port, "cmd": 'nmap -n -sV --script "ftp* and default" -p ' + self.port + ' ' + self.host, "shell": True, "chain": False},
-            {"name": "ftp_version_"+self.port, "cmd": 'nc -w 10 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True, "chain": False},
+            {"name": "ftp_version_"+self.port, "cmd": 'nc -w 20 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True, "chain": False},
 
         ]
 

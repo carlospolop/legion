@@ -14,7 +14,7 @@ class Imap_warrior (Warrior):
         ]
 
         if self.proto == "imap":
-            self.cmds.append({"name": self.proto + "_version_"+self.port, "cmd": 'nc -w 10 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True, "chain": False})
+            self.cmds.append({"name": self.proto + "_version_"+self.port, "cmd": 'nc -w 20 -q 1 -vn ' + self.host + ' ' + self.port + ' </dev/null', "shell": True, "chain": False})
         else:
             self.cmds.append({"name": self.proto + "_version_"+self.port, "cmd": 'echo "A1 Logout" | openssl s_client -connect '+self.host+':'+self.port+' -crlf -quiet', "shell": True, "chain": False})
 

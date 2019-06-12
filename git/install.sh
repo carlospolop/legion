@@ -48,3 +48,7 @@ write_main "Intsalling dirsearch"
 git clone https://github.com/maurosoria/dirsearch.git dirsearch
 ln -s "$(pwd)/dirsearch/dirsearch.py" /usr/bin/dirsearch
 echo ""
+
+write_main "Installing dirhunt"
+pip3 install dirhunt
+echo ""

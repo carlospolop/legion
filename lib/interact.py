@@ -168,19 +168,20 @@ class LegionPrompt(Cmd):
 
     def do_exec(self, args):
         '''Execute the indicated cmd'''
-        if len(args.split(" ")) < 1:
+        if len(args.split(" ")) != 1:
             print_error("exec <CMDname>")
-        cmd = args.split(" ")[0].lower()
-        self.priv_values["exec"] = cmd
-        warrior = self.initW()
-        self.priv_values["exec"] = ""
-
-        if warrior != -1:  # If -1, then something went wrong creating the warrior
-            self.ws.append(warrior)
-            thread = Thread(target=warrior.run)
-            thread.start()
         else:
-            print_error("Something went wrong, nothing is going to be executed")
+            cmd = args.split(" ")[0].lower()
+            self.priv_values["exec"] = cmd
+            warrior = self.initW()
+            self.priv_values["exec"] = ""
+
+            if warrior != -1:  # If -1, then something went wrong creating the warrior
+                self.ws.append(warrior)
+                thread = Thread(target=warrior.run)
+                thread.start()
+            else:
+                print_error("Something went wrong, nothing is going to be executed")
 
 
     def do_startGeneral(self, _):

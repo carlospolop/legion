@@ -42,7 +42,7 @@ class Http_warrior (Warrior):
         dav_auth = "-auth "+self.username+":"+self.password+" " if (self.username and self.password) else ""
         self.demand_cmds=[
             {"name": self.proto + "_slow_dirsearch_"+self.port, "cmd": "dirsearch -f -F -u " + self.proto_host_port + " -e " + self.extensions + " -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt", "shell": False, "chain": False},
-            {"name": self.proto + "_slqmap_"+self.port, "cmd": "sqlmap -u "+self.proto_host_port_path+" --batch --crawl=3 --forms --random-agent --level 1 --risk 1 -f -a" , "shell": False, "chain": False},
+            {"name": self.proto + "_sqlmap_"+self.port, "cmd": "sqlmap -u "+self.proto_host_port_path+" --batch --crawl=3 --forms --random-agent --level 1 --risk 1 -f -a" , "shell": False, "chain": False},
             {"name": self.proto + "_davtestmove_"+self.port, "cmd": "davtest "+dav_auth+"-move -sendbd auto -url "+self.proto_host_port_path, "shell": False, "chain": False},
             {"name": self.proto + "_davtestnorm_"+self.port, "cmd": "davtest "+dav_auth+" -sendbd auto -url " + self.proto_host_port_path, "shell": False, "chain": False},
             {"name": self.proto + "_wpscan_"+self.port, "cmd": "wpscan --url "+self.proto_host_port_path+" --rua --no-update --enumerate ap", "shell": False, "chain": False},

@@ -49,6 +49,7 @@ class Warrior:
         self.isChained = False                                  # Process needs to wait to finish before executing next
         self.ip = self.host if re.match("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$", self.host) else ""  # If host is an IP fill this field
         self.wordlists_path = os.path.dirname(os.path.realpath(__file__)) + '/../wordlists/'
+        self.git_path = os.path.dirname(os.path.realpath(__file__)) + '/../git/'
 
         self.ulist = ulist if len(ulist) > 0 else self.wordlists_path + '/users.txt'
         self.plist = plist if len(plist) > 0 else self.wordlists_path + '/passwords.txt'

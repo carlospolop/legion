@@ -47,5 +47,8 @@ class Http_warrior (Warrior):
             {"name": self.proto + "_davtestnorm_"+self.port, "cmd": "davtest "+dav_auth+" -sendbd auto -url " + self.proto_host_port_path, "shell": False, "chain": False},
             {"name": self.proto + "_wpscan_"+self.port, "cmd": "wpscan --url "+self.proto_host_port_path+" --rua --no-update --enumerate ap", "shell": False, "chain": False},
             {"name": self.proto + "_cewl_"+self.port, "cmd": "cewl "+self.proto_host_port_path+" -m 6", "shell": False, "chain": False},
-
+            {"name": self.proto + "_arjun_"+self.port, "cmd": "cd "+ self.git_path+"/arjun 2>/dev/null; ./arjun.py --get -u "+self.proto_host_port_path+"; "+
+                                                            "./arjun.py --post -u "+self.proto_host_port_path+"; "+
+                                                            "./arjun.py --json -u "+self.proto_host_port_path+"; cd - 2>/dev/null",
+            "shell": True, "chain": False},
         ]

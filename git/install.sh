@@ -52,3 +52,8 @@ echo ""
 write_main "Installing dirhunt"
 pip3 install dirhunt
 echo ""
+
+write_main "Installing Arjun"
+git clone https://github.com/s0md3v/Arjun.git arjun
+chmod +x arjun/arjun.py
+echo ""

@@ -22,6 +22,10 @@ class Snmp_warrior (Warrior):
             {"name": "snmp_nmap_"+self.port, "cmd": 'nmap -n -sV --script "*snmp* and not brute and not dos" -p ' +self.port + " " + self.host, "shell": True, "chain": False},
 
         ]
+        
+        msfmodules = [{"path": "auxiliary/scanner/smb/smb2", "toset": {"RHOSTS": self.host, "RPORT": self.port}}]
+
+        self.cmds.append({"name": "smb_msf_"+self.port, "cmd": self.create_msf_cmd(msfmodules), "shell": True, "chain": False})
 
         if self.ip != "":
             self.cmds.append({"name": "snmp_check1_"+self.port, "cmd": 'snmp-check -p '+ self.port + ' -c ' + self.community + ' ' + self.ip, "shell": False, "chain": False})

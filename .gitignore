@@ -1,0 +1,6 @@
+git/*
+!git/install.sh
+*.pyc
+warriors/__pycache__/*
+lib/__pycache__/*
+__pycache__/*

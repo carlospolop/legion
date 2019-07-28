@@ -82,9 +82,13 @@ class LegionPrompt(Cmd):
             print_error("set <variable> <value>")
         else:
             variable = args.split(" ")[0].lower()
-            value = args.split(" ")[1]
+            value = args.split(" ")[1].strip()
             if variable == "proto" and value.lower() not in valid_protos:
                 print_error("Not valid protocol: "+value)
+            elif variable in ["port", "intensity"] and not value.isdigit():
+                print_error("Please set a number: "+value)
+            elif variable in ["reexec", "verbose"] and not value.lower() in ["true", "false"]:
+                print_error("Please set a boolean(true or false): "+value)
             elif variable.lower() in self.all_values:
                 value = value if not value.lower() in ["true", "false"] else (True if value.lower() == "true" else False)
                 self.all_values[variable] = value

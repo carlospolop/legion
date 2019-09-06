@@ -1,8 +1,8 @@
-# LEGION - Automatic vulnerability scanner
+# LEGION - Automatic Enumeration Tool
 
 **Legion is based in the Pentesting Methodology that you can find in [book.hacktricks.xyz](https://book.hacktricks.xyz/pentesting-methodology).**
 
-Legion is a tool that uses several well-known opensource tools to automatically, semi-automatically or manually scan for vulnerabilities and common misconfigurations of the most frequent found services running in machines that you could need to pentest.
+Legion is a tool that uses several well-known opensource tools to automatically, semi-automatically or *manually* enumerate the most frequent found services running in machines that you could need to pentest.
 
 Basically, the goal of Legion is to extract all information that you can extract from each service so you don't have to send the same commands all the time.
 A lot of actions are repeated by being done by more than one tool, this is done to be sure that all the possible information is correctly extracted.

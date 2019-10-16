@@ -16,10 +16,11 @@ class Scanner_warrior (Warrior):
             self.cmds = [{"name": "udp-proto-scanner", "cmd": 'udp-proto-scanner.pl ' + self.ip, "shell": False, "chain": False}]
 
         self.cmds += [
-            {"name": "nmap_udp", "cmd": 'nmap -sU -sV -T 4 -oA '+self.workdir+'nmapu '+ self.host, "shell": False, "chain": False},
-            {"name": "nmap_init", "cmd": 'nmap -sV -sC -O -T 4 -oA '+self.workdir+'nmapi ' + self.host, "shell": False, "chain": True},
-            {"name": "nmap_full_fast", "cmd": 'nmap -sV -sC -T 4 -p - -oA '+self.workdir+'nmapff ' + self.host, "shell": False, "chain": True},
-            {"name": "nmap_full", "cmd": 'nmap -sV -sC -p - -oA '+self.workdir+'nmapf ' + self.host, "shell": False, "chain": False},
+            {"name": "nmap_fast_udp", "cmd": 'nmap -F -sU -sV -T 4 -oA '+self.workdir+'nmapu '+ self.host, "shell": False, "chain": False},
+            {"name": "nmap_init", "cmd": 'nmap -sS -sV -T 4 -oA '+self.workdir+'nmapi ' + self.host, "shell": False, "chain": True},
+            {"name": "nmap_full_fast", "cmd": 'nmap -sS -sV -sC -O -T 4 -p - -oA '+self.workdir+'nmapff ' + self.host, "shell": False, "chain": True},
+            {"name": "nmap_full", "cmd": 'nmap -sS -sV -sC -O -p - -oA '+self.workdir+'nmapf ' + self.host, "shell": False, "chain": True},
+            {"name": "nmap_sctp_full", "cmd": 'nmap -T 4 -sY -sV -sC -p - -oA '+self.workdir+'nmapfsctp ' + self.host, "shell": False, "chain": False},
             #{"name": "nmap_udp_full", "cmd": 'nmap -sU -sV -p - ' + self.host, "shell": False, "chain": False}
         ]
 

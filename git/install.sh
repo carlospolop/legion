@@ -10,6 +10,9 @@ function write_main(){
     printf "${G}[*]${Y} $1${NC}\n"
 }
 
+write_main "Installing basic python package"
+pip3 install termcolor
+echo ""
 
 write_main "Installing odat"
 git clone https://github.com/quentinhardy/odat.git odat

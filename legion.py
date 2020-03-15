@@ -42,6 +42,8 @@ def check_args(args=None):
                         help='USED IN HTTP/s: Used for reverse dns lookup with ipv6')
     parser.add_argument('--domain', default="",
                         help='If possible, set the domain name here and the VictimIP in --host')
+    parser.add_argument('--execonly', default="",
+                        help='Exec only this tool')
     parser.add_argument('-r', '--run', action="store_true", default=False,
                         help='Just run the analysis')
     parser.add_argument('-v', '--verbose', action="store_true", default=True,
@@ -50,12 +52,12 @@ def check_args(args=None):
     args = parser.parse_args()
     return (parser, args.proto.lower(), args.host, args.workdir, str(args.port), str(args.intensity), args.username,
             args.ulist, args.plist, args.protohelp, args.notuse.split(","), args.extensions, args.path, args.password,
-            args.ipv6, args.domain, args.run, args.verbose)
+            args.ipv6, args.domain, args.execonly, args.run, args.verbose)
 
 
 def main():
     parser, proto, host, workdir, port, intensity, username, ulist, plist, protohelp, notuse, extensions, path, password, ipv6, \
-        domain, run, verbose = check_args(sys.argv[1:])
+        domain, execonly, run, verbose = check_args(sys.argv[1:])
 
     interactive = not run
 
@@ -70,7 +72,7 @@ def main():
 
     if not interactive:
         main_run(parser, proto, host, workdir, port, intensity, username, ulist, plist, protohelp, notuse, extensions, path,
-                 password, ipv6, domain, interactive, verbose, False, [])
+                 password, ipv6, domain, interactive, verbose, False, [], execonly)
 
     else:
         LegionPrompt(parser, proto, host, workdir, port, intensity, username, ulist, plist, notuse, extensions, path, password,

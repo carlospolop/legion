@@ -8,4 +8,5 @@ RUN apk add python3
 RUN apk add nmap
 RUN cd legion/git/ && ./install.sh
 
-CMD cd legion && python3 legion.py
+WORKDIR /legion
+CMD /usr/bin/python3 legion.py

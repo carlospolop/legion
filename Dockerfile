@@ -5,33 +5,33 @@ COPY . /legion
 # Install legion dependencies.
 RUN apt-get update
 RUN apt-get install -y \
-        git \
-        python2 \
-        python-pip \
-        python3 \
-        python3-pip \
-        python3-ldapdomaindump \
-        nmap \
-        ike-scan \
-        sqlmap \
-        hydra \
-        snmp \
-        netcat \
+        cewl \
         curl \
         davtest \
-        dnsutils \
         dnsrecon \
-        sslyze \
-        smbmap \
+        dnsutils \
         enum4linux \
-        smbclient \
-        sslscan \
-        oscanner \
         finger \
+        git \
+        hydra \
+        ike-scan \
+        metasploit-framework \
+        netcat \
         nfs-common \
+        nmap \
         ntp \
-        cewl \
-        metasploit-framework
+        oscanner \
+        python2 \
+        python3 \
+        python3-ldapdomaindump \
+        python3-pip \
+        python-pip \
+        smbclient \
+        smbmap \
+        snmp \
+        sqlmap \
+        sslscan \
+        sslyze
 
 # Start the installation phase.
 RUN cd legion/git/ && ./install.sh

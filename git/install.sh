@@ -26,7 +26,7 @@ pip2 install pyip pycrypto pyopenssl || pip install pyip pycrypto pyopenssl
 echo ""
 
 write_main "Installing rpcbind"
-apt-get install rpcbind
+apt-get install -y rpcbind
 echo ""
 
 write_main "Installing UDP-Proto-Scanner"
@@ -35,7 +35,7 @@ cp udp-proto-scanner/udp-proto-scanner.pl udp-proto-scanner/udp-proto-scanner.co
 echo ""
 
 write_main "Installing snmp-mibs-downloader"
-apt-get install snmp-mibs-downloader -y
+apt-get install -y snmp-mibs-downloader
 sed -i 's/mibs :/mibs :/g' /etc/snmp/snmp.conf
 echo ""
 

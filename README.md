@@ -148,5 +148,19 @@ If `False` the output of `info` will show the values of the parameters, for exam
 
 Is the directory where the info of the victim is storaged. By default it is `$HOME/.legion`
 
+## Docker
+
+To have a nice experience with `legion` you can also build yourself his container image using `docker` or `podman`, just typing the following commands:
+
+```docker build -t legion . ```
+
+And start the container:
+
+```docker run -it --rm localhost/legion```
+
+You will have a ready-to-use `legion` container image.
+
+
+
 
 By Polop<sup>(TM)</sup>

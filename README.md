@@ -156,7 +156,7 @@ To have a nice experience with `legion` you can also build yourself his containe
 
 And start the container:
 
-```docker run -it --rm localhost/legion```
+```docker run -it legion bash```
 
 You will have a ready-to-use `legion` container image.
 

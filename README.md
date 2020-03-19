@@ -23,6 +23,18 @@ ln -s /opt/legion/legion.py /usr/bin/legion
 For pentesting oracle services you should install manually some dependencies:
 https://book.hacktricks.xyz/pentesting/1521-1522-1529-pentesting-oracle-listener/oracle-pentesting-requirements-installation
 
+### Docker
+
+To have a nice experience with `legion` you can also build a container image using `docker` or `podman`, just typing the following commands:
+
+```docker build -t legion . ```
+
+And start the container:
+
+```docker run -it legion bash```
+
+You will have a ready-to-use `legion` container image (To execute legion inside the container run `./legion.py`).
+
 
 ## Protocols Supported
 
@@ -147,18 +159,6 @@ If `False` the output of `info` will show the values of the parameters, for exam
 ### workdir
 
 Is the directory where the info of the victim is storaged. By default it is `$HOME/.legion`
-
-## Docker
-
-To have a nice experience with `legion` you can also build yourself his container image using `docker` or `podman`, just typing the following commands:
-
-```docker build -t legion . ```
-
-And start the container:
-
-```docker run -it legion bash```
-
-You will have a ready-to-use `legion` container image.
 
 
 

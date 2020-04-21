@@ -24,7 +24,7 @@ class Pop_warrior (Warrior):
 
         if self.intensity == "3":
             self.extra_info = "You can use the variable 'username' to brute force a single username or the variable ulist to bruteforce a list of usernames."
-            ssl = " -S " if self.proto is "pops" else ""  # Check if SSL is needed
+            ssl = " -S " if self.proto == "pops" else ""  # Check if SSL is needed
             if username != "":
                 self.cmds = [{"name": self.proto+"_brute_hydra_"+self.port, "cmd": 'hydra -f -e ns -l '+self.username+' -P '+self.plist+ ssl +' -s '+self.port+' '+self.host+' pop3', "shell": True, "chain": False}]
             else:

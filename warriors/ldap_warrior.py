@@ -13,6 +13,8 @@ class Ldap_warrior (Warrior):
         ]
 
         if self.intensity >= "2":
+            if domain != "" and path != "":
+                self.cmds.append({"name": "ldapsearch", "cmd": "ldapsearch -x -h " +self.host+ " -D '" +self.domain+ "\\" +self.username+ "' -w '" +self.password+ "' -b 'DC=" +self.domain+ ",DC=" +self.path+ "'", "shell": True, "chain": False})
             if username != "" and password != "" and domain != "":
                 self.cmds.append({"name": "ldapdomaindump", "cmd": "ldapdomaindump --no-json --no-grep --authtype SIMPLE -o "+self.workdir+" -r " +self.host+ " -u '" + self.domain + "\\" + self.username + "' -p '" + self.password+"' && echo 'To see the HTML output go to: "+self.workdir+"'", "shell": True, "chain": False})
 

@@ -60,3 +60,9 @@ write_main "Installing Arjun"
 git clone https://github.com/s0md3v/Arjun.git arjun
 chmod +x arjun/arjun.py
 echo ""
+
+write_main "Installing cmsmap"
+git clone https://github.com/Dionach/CMSmap.git
+cd CMSmap/
+pip3 install .
+echo ""

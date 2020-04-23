@@ -18,6 +18,7 @@ RUN apt-get install -y \
         hydra \
         ike-scan \
         metasploit-framework \
+        nbtscan \
         netcat \
         nfs-common \
         nikto \

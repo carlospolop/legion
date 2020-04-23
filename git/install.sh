@@ -26,7 +26,7 @@ pip2 install pyip pycrypto pyopenssl || pip install pyip pycrypto pyopenssl
 echo ""
 
 write_main "Installing rpcbind"
-apt-get install -y rpcbind
+sudo apt-get install -y rpcbind
 echo ""
 
 write_main "Installing UDP-Proto-Scanner"
@@ -35,7 +35,7 @@ cp udp-proto-scanner/udp-proto-scanner.pl udp-proto-scanner/udp-proto-scanner.co
 echo ""
 
 write_main "Installing snmp-mibs-downloader"
-apt-get install -y snmp-mibs-downloader
+sudo apt-get install -y snmp-mibs-downloader
 sed -i 's/mibs :/mibs :/g' /etc/snmp/snmp.conf
 echo ""
 
@@ -59,6 +59,10 @@ echo ""
 write_main "Installing Arjun"
 git clone https://github.com/s0md3v/Arjun.git arjun
 chmod +x arjun/arjun.py
+echo ""
+
+write_main "Installing Dirb"
+sudo apt-get install -y dirb
 echo ""
 
 write_main "Installing cmsmap"

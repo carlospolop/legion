@@ -12,6 +12,7 @@ RUN apt-get install -y \
         dnsrecon \
         dnsutils \
         enum4linux \
+        exploitdb \
         finger \
         git \
         hydra \

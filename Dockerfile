@@ -8,6 +8,7 @@ RUN apt-get install -y \
         cewl \
         curl \
         davtest \
+        dirb \
         dnsrecon \
         dnsutils \
         enum4linux \
@@ -18,6 +19,7 @@ RUN apt-get install -y \
         metasploit-framework \
         netcat \
         nfs-common \
+        nikto \
         nmap \
         ntp \
         oscanner \
@@ -25,13 +27,14 @@ RUN apt-get install -y \
         python3 \
         python3-ldapdomaindump \
         python3-pip \
-        python-pip \
         smbclient \
         smbmap \
         snmp \
         sqlmap \
         sslscan \
-        sslyze
+        sslyze \
+        wafw00f \
+        whatweb
 
 # Start the installation phase.
 RUN cd legion/git/ && ./install.sh

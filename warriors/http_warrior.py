@@ -30,7 +30,7 @@ class Http_warrior (Warrior):
             self.cmds.append({"name": "https_ssl_nmap_"+self.port, "cmd": 'nmap -sV --script "ssl-* and not brute and not dos" -p ' + self.port + " " +self.host, "shell": True, "chain": False})
 
         if self.intensity >= "2":
-            self.cmds.append({"name": self.proto + "_medium_dirsearch_"+self.port, "cmd": "dirsearch -f -F -r -u " + self.proto_host_port_path + " -e " + self.extensions + " -w /usr/share/wordlists/dirb/common.txt", "shell": False, "chain": False})
+            self.cmds.append({"name": self.proto + "_medium_dirsearch_"+self.port, "cmd": "dirsearch -f -F -r -u " + self.proto_host_port_path + " -e " + self.extensions + " -w /usr/share/dirb/wordlists/common.txt", "shell": False, "chain": False})
 
         if self.intensity == "3":
             self.extra_info = "You can use the variable 'username' to brute force a single username or the variable ulist to bruteforce a list of usernames. The default 'path' is '/'."

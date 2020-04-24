@@ -12,11 +12,13 @@ RUN apt-get install -y \
         dnsrecon \
         dnsutils \
         enum4linux \
+        exploitdb \
         finger \
         git \
         hydra \
         ike-scan \
         metasploit-framework \
+        nbtscan \
         netcat \
         nfs-common \
         nikto \

@@ -68,5 +68,10 @@ echo ""
 write_main "Installing cmsmap"
 git clone https://github.com/Dionach/CMSmap.git
 cd CMSmap/
+cat << EOF > cmsmap.conf
+[exploitdb]
+edbtype = APT
+edbpath = /usr/share/exploitdb/
+EOF
 pip3 install .
 echo ""

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+printf "Is this an Arch based system? (y/N): "
+read ARCH
+
 Y='\033[1;33m'
 B='\033[0;34m'
 G='\033[0;32m'
@@ -26,7 +29,11 @@ pip2 install pyip pycrypto pyopenssl || pip install pyip pycrypto pyopenssl
 echo ""
 
 write_main "Installing rpcbind"
-sudo apt-get install -y rpcbind
+if [[ "$ARCH" == "y" ]]; then
+    sudo pacman -S rpcbind
+else
+    sudo apt-get install -y rpcbind
+fi
 echo ""
 
 write_main "Installing UDP-Proto-Scanner"
@@ -35,7 +42,11 @@ cp udp-proto-scanner/udp-proto-scanner.pl udp-proto-scanner/udp-proto-scanner.co
 echo ""
 
 write_main "Installing snmp-mibs-downloader"
-sudo apt-get install -y snmp-mibs-downloader
+if [[ "$ARCH" == "y" ]]; then
+    sudo pacman -S net-snmp
+else
+    sudo apt-get install -y snmp-mibs-downloader
+fi
 sed -i 's/mibs :/mibs :/g' /etc/snmp/snmp.conf
 echo ""
 
@@ -62,7 +73,14 @@ chmod +x arjun/arjun.py
 echo ""
 
 write_main "Installing Dirb"
-sudo apt-get install -y dirb
+
+if [[ "$ARCH" == "y" ]]; then
+    echo "Please install dirb with your favorite AUR helper."
+    read
+else
+    sudo apt-get install -y dirb
+fi
+
 echo ""
 
 write_main "Installing cmsmap"

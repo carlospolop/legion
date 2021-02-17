@@ -13,6 +13,13 @@ function write_main(){
     printf "${G}[*]${Y} $1${NC}\n"
 }
 
+write_main "Ensure base requirements"
+if [[ "$ARCH" == "y" ]]; then
+	sudo pacman -Syu --needed --noconfirm pacman-contrib base-devel git python-pip
+else
+	sudo apt install -y python3-dev git
+fi
+
 write_main "Installing basic python package"
 pip3 install termcolor
 echo ""
@@ -75,8 +82,8 @@ echo ""
 write_main "Installing Dirb"
 
 if [[ "$ARCH" == "y" ]]; then
-    echo "Please install dirb with your favorite AUR helper."
-    read
+	git clone https://aur.archlinux.org/dirb.git
+	pushd dirb && makepkg -si && popd
 else
     sudo apt-get install -y dirb
 fi

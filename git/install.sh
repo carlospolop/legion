@@ -1,5 +1,8 @@
 #!/bin/bash
 
+printf "Is this an Arch based system? (y/N): "
+read ARCH
+
 Y='\033[1;33m'
 B='\033[0;34m'
 G='\033[0;32m'
@@ -9,6 +12,13 @@ NC='\033[0m'
 function write_main(){
     printf "${G}[*]${Y} $1${NC}\n"
 }
+
+write_main "Ensure base requirements"
+if [[ "$ARCH" == "y" ]]; then
+	sudo pacman -Syu --needed --noconfirm pacman-contrib base-devel git python-pip
+else
+	sudo apt install -y python3-dev git
+fi
 
 write_main "Installing basic python package"
 pip3 install termcolor
@@ -26,7 +36,11 @@ pip2 install pyip pycrypto pyopenssl || pip install pyip pycrypto pyopenssl
 echo ""
 
 write_main "Installing rpcbind"
-sudo apt-get install -y rpcbind
+if [[ "$ARCH" == "y" ]]; then
+    sudo pacman -S rpcbind
+else
+    sudo apt-get install -y rpcbind
+fi
 echo ""
 
 write_main "Installing UDP-Proto-Scanner"
@@ -35,7 +49,11 @@ cp udp-proto-scanner/udp-proto-scanner.pl udp-proto-scanner/udp-proto-scanner.co
 echo ""
 
 write_main "Installing snmp-mibs-downloader"
-sudo apt-get install -y snmp-mibs-downloader
+if [[ "$ARCH" == "y" ]]; then
+    sudo pacman -S net-snmp
+else
+    sudo apt-get install -y snmp-mibs-downloader
+fi
 sed -i 's/mibs :/mibs :/g' /etc/snmp/snmp.conf
 echo ""
 
@@ -62,7 +80,14 @@ chmod +x arjun/arjun.py
 echo ""
 
 write_main "Installing Dirb"
-sudo apt-get install -y dirb
+
+if [[ "$ARCH" == "y" ]]; then
+	git clone https://aur.archlinux.org/dirb.git
+	pushd dirb && makepkg -si && popd
+else
+    sudo apt-get install -y dirb
+fi
+
 echo ""
 
 write_main "Installing cmsmap"

@@ -35,6 +35,10 @@ And start the container:
 
 You will have a ready-to-use `legion` container image (To execute legion inside the container run `./legion.py`).
 
+Or you can just download the dockerhub container with:
+
+```docker pull carlospolop/legion:latest```
+
 
 ## Protocols Supported
 

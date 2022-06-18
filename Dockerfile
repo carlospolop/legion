@@ -19,7 +19,7 @@ RUN apt-get install -y \
         ike-scan \
         metasploit-framework \
         nbtscan \
-        netcat \
+        netcat-openbsd \
         nfs-common \
         nikto \
         nmap \

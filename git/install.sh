@@ -100,3 +100,7 @@ edbpath = /usr/share/exploitdb/
 EOF
 pip3 install .
 echo ""
+
+write_main "Installing gobuster"
+sudo apt install gobuster
+echo ""

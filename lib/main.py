@@ -87,9 +87,15 @@ def main_run(parser, proto, host, workdir, port, intensity, username, ulist, pli
             print_error("Please, set a host")
             return -1
 
-    if not re.match("^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$", host) and not re.match(
+    # Heck domain name, ip and ip range if scanner
+    if not re.match("^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$", host) and \
+        not re.match(
             "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
-            host):
+            host) and \
+        not (proto == "scanner" and re.match(
+            "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])/\d{1,2}$",
+            host)):
+                
         if not interactive:
             parser.print_help(sys.stderr)
             print_error("The provided host is not an IP nor a valid Domain")

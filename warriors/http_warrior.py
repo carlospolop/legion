@@ -18,6 +18,7 @@ class Http_warrior (Warrior):
             #{"name":"dirb","cmd": "dirb -S " + self.proto_host_port_path + " -X ." + self.extensions.replace(",",",."), "shell": False, "chain": False}, #Dirb needs the extension with a point. The flag '-f' in dirsearch makes it behave like dirb (force ext and "/")
             {"name": self.proto+"_cmsmap_"+self.port, "cmd": 'echo "y" | cmsmap -s '+self.proto_host_port_path, "shell": True, "chain": False},
             {"name": self.proto + "_curl_put_"+self.port, "cmd": 'curl -v -X PUT -d "Hey! I am a PUT" ' + self.proto_host_port_path + "/legion.txt", "shell": True, "chain": False},
+            {"name": self.proto + "_gobuster_vhosts_"+self.port, "cmd": 'gobuster vhost -u "' + self.proto_host_port + '" -t 50 -w "' + self.wordlists_path+'/subdomains-top1million-110000.txt"', "shell": True, "chain": False},
 
         ]
 
@@ -31,6 +32,7 @@ class Http_warrior (Warrior):
 
         if self.intensity >= "2":
             self.cmds.append({"name": self.proto + "_medium_dirsearch_"+self.port, "cmd": "dirsearch -f -F -r -u " + self.proto_host_port_path + " -e " + self.extensions + " -w /usr/share/dirb/wordlists/common.txt", "shell": False, "chain": False})
+            self.cmds.append({"name": self.proto + "_medium_dirsearch_raft_"+self.port, "cmd": "dirsearch -f -F -r -u " + self.proto_host_port_path + " -e " + self.extensions + ' -w ' + self.wordlists_path+'/raft-medium-words.txt', "shell": False, "chain": False})
 
         if self.intensity == "3":
             self.extra_info = "You can use the variable 'username' to brute force a single username or the variable ulist to bruteforce a list of usernames. The default 'path' is '/'."

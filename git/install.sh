@@ -65,7 +65,7 @@ write_main "Creating symlink of /usr/share/doc/python-impacket/examples/rpcdump.
 ln -s /usr/share/doc/python-impacket/examples/rpcdump.py /usr/bin/rpcdump.py
 echo ""
 
-write_main "Intsalling dirsearch"
+write_main "Installing dirsearch"
 git clone https://github.com/maurosoria/dirsearch.git dirsearch
 ln -s "$(pwd)/dirsearch/dirsearch.py" /usr/bin/dirsearch
 echo ""
